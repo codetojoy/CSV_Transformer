@@ -12,7 +12,7 @@ class InfoMapper {
     def party
     def utils = new Utils()
 
-    def mapLine = { def line ->
+    def mapLine(def line) {
         def info = null 
 
         try {
