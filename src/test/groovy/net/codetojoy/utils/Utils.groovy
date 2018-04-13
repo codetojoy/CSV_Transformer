@@ -8,7 +8,17 @@ class UtilsTestCase {
     def utils = new Utils()
 
     @Test
-    void cleanTotal_case1() {
+    void testBuildList_basic() {
+        // test
+        def result = utils.buildList(['a','b','c'])
+
+        def expected = /"a","b","c"/
+
+        assertEquals(expected, result)
+    }
+
+    @Test
+    void testCleanTotal_case1() {
         // test
         def result = utils.cleanTotal('$500.00' as String)
 
@@ -16,7 +26,7 @@ class UtilsTestCase {
     }
 
     @Test
-    void cleanTotal_case2() {
+    void testCleanTotal_case2() {
         // test
         def result = utils.cleanTotal('"$1500.00"' as String)
 

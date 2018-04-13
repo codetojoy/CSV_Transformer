@@ -1,6 +1,8 @@
 
 package net.codetojoy.custom
 
+import net.codetojoy.utils.Utils
+
 class Info {
     def party = ""
     def firstName = ""
@@ -8,17 +10,13 @@ class Info {
     def city = ""
     def total = 0
 
-    static String q(def s) {
-        def dq = '"'
-        return "${dq}${s}${dq}"
-    }
+    static def utils = new Utils()
 
     static String getHeader() {
-        return "${q("Party")},${q("Last Name")},${q("First Name")},${q("City")},${q("Total")}"
+        utils.buildList(["Party", "Last Name", "First Name", "City", "Total"])
     }
 
     String toString() {
-        return "${q(party)},${q(lastName)},${q(firstName)},${q(city)},${q(total)}"
+        utils.buildList([party, lastName, firstName, city, total])
     }
 }
-
